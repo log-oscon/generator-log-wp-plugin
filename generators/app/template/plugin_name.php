@@ -52,6 +52,6 @@ if ( ! defined( 'WPINC' ) ) {
  * @since    0.0.1
  */
 \add_action( 'plugins_loaded', function () {
-  $plugin = new <%= namespace %>Plugin( '<%= text_domain %>', '1.0.0' );
+  $plugin = new <%= namespace %>\Plugin( '<%= text_domain %>', '1.0.0' );
   $plugin->run();
 } );
