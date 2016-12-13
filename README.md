@@ -4,7 +4,7 @@
 log.OSCON <engenharia@log.pt>
 
 ##License: 
-[GPLv2 or later] (http://www.gnu.org/licenses/gpl-2.0.html)
+[GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
 
 ## What it is ##
 
@@ -12,8 +12,9 @@ It will generate a base WordPress Plugin project with PHPUnit, WP_Mocks and Gulp
 
 ## Instalation ##
 
-Please read [Yeoman docs] (http://yeoman.io) for Yeoman installation.  
+Please read [Yeoman docs](http://yeoman.io) for Yeoman installation.  
 
+Run `generator-log-wp-plugin` from `npm`:  
 `npm install -g generator-log-wp-plugin`
 
 ## Bootstrap ##
@@ -36,12 +37,10 @@ Please read [Yeoman docs] (http://yeoman.io) for Yeoman installation.
 
 
 ## Generators:
-
-
-
-
+== TODO ==
 
 ## Where can I report bugs? ##
+[Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)  
 
 ## How can I contribute? ##
 
