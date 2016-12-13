@@ -1,16 +1,14 @@
 {
-  "name": "",
-  "version": "",
-  "description": "",
+  "name": "<%= plugin_name %>",
+  "version": "1.0.0",
+  "description": "<%= plugin_description %>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "<%= plugin_url %>"
   },
   "devDependencies": {
     "gulp": "^3.9.1"
   },
   "dependencies": {},
-  "scripts": {
-    "build": "gulp build"
-  }
+  "scripts": {}
 }

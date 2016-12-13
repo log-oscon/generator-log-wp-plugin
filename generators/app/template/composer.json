@@ -1,5 +1,5 @@
 {
-  "name": "<%= composer %>",
+  "name": "<%= name_composer %>",
   "description": "<%= plugin_description %>",
   "type": "wordpress-plugin",
   "keywords": ["wordpress", "plugin"],
