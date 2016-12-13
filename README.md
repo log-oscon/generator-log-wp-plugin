@@ -1,13 +1,5 @@
 # Plugin Boilerplate Generator #
 
-## Contributors:
-* log.OSCON <engenharia@log.pt>
-* [Edygar Oliveira](https://github.com/edygar)
-* [Ricardo Castelhano](https://github.com/RicCastelhano)
-
-##License: 
-[GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
-
 ## What it is ##
 
 It will generate a base WordPress Plugin project with PHPUnit, WP_Mocks and Gulp tasks.
@@ -38,18 +30,30 @@ Run `generator-log-wp-plugin` from `npm`:
 		* `sample.test.php`
 
 
-## Generators:
-== TODO ==
+## Sub-Generators:
+Aditional sub-generators to generate/update files to enhance your plugin.
 
 ## Where can I report bugs? ##
-[Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)  
-
-## How can I contribute? ##
+[Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)
 
 ## Changelog ##
-
-= 1.0.0 =
-* Initial release.
+* 1.0.0
+	* Initial release.
 
 
 ## ROADMAP ##
+* Sub-generator for `Taxonomy`
+* Sub-generator for `Custom Post Type` with [ACF](https://www.advancedcustomfields.com/)
+* Sub-generator for `Custom Post Type` with [CMB2](https://pt.wordpress.org/plugins/cmb2/)
+* Sub-generator for `Frontend` type files
+* Sub-generator for `WP-API EndPoint`
+* Sub-generator for `Widget`
+
+
+## Contributors: ##
+* log.OSCON <engenharia@log.pt>
+* [Edygar Oliveira](https://github.com/edygar)
+* [Ricardo Castelhano](https://github.com/RicCastelhano)
+
+## License: ##
+[GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
