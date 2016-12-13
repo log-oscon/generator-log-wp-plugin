@@ -82,6 +82,11 @@ module.exports = function() {
         default:  repo && repo.url || null
       }, {
         type:     'input',
+        name:     'project_url',
+        message:  'Project URL',
+        default:  ({ plugin_url }) => plugin_url || (repo && repo.url || null)
+      }, {
+        type:     'input',
         name:     'plugin_description',
         message:  'Plugin Description'
       }, {
@@ -93,19 +98,33 @@ module.exports = function() {
       }, {
         type:     'input',
         name:     'namespace',
-        message:  'Namespace (PHP)',
+        message:  'Namespace',
         default:  function(config) {
           return [
             namespaceFriendly(config.vendor_name),
             'WP',
             'Plugin',
-            namespaceFriendly(config.plugin_name)
+            namespaceFriendly(config.plugin_name),
           ].join('\\');
         },
         validate: notEmpty
       }, {
         type:     'input',
-        name:     'composer_name',
+        name:     'tests_namespace',
+        message:  'Tests namespace',
+        default:  function(config) {
+          return [
+            namespaceFriendly(config.vendor_name),
+            'WP',
+            'Plugin',
+            'Tests',
+            namespaceFriendly(config.plugin_name),
+          ].join('\\');
+        },
+        validate: notEmpty
+      }, {
+        type:     'input',
+        name:     'name_composer',
         message:  'Composer package name',
         default:  function(config) {
           return [
@@ -118,6 +137,8 @@ module.exports = function() {
     ])
     .then(config => {
       this.config.set(config);
+      this.config.set('git_issues', `${config.project_url}/issues`.replace(/\/+/g, '/'));
+      this.config.set('git_source', config.project_url || '');
       return this.config.save();
     });
   });

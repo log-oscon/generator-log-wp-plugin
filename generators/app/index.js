@@ -10,7 +10,7 @@ var LogGenerator = yeoman.Base.extend({
     copyFromTemplate: function() {
       this.fs.copyTpl(
         this.templatePath('**'),
-        this.destinationPath(),
+        this.destinationPath(this.config.get('text_domain')),
         this.config.getAll()
       );
     }
