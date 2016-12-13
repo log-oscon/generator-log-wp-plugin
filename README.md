@@ -52,7 +52,7 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 
 ## Contributors: ##
 * log.OSCON <engenharia@log.pt>
-* [Edygar Oliveira](https://github.com/edygar)
+* [Edygar de Lima](https://github.com/edygar)
 * [Ricardo Castelhano](https://github.com/RicCastelhano)
 
 ## License: ##
