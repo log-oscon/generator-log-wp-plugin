@@ -1,0 +1,16 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
+  },
+  "dependencies": {},
+  "scripts": {
+    "build": "gulp build"
+  }
+}
