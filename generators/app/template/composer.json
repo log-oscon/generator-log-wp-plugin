@@ -1,0 +1,38 @@
+{
+  "name": "<%= name_composer %>",
+  "description": "<%= plugin_description %>",
+  "type": "wordpress-plugin",
+  "keywords": ["wordpress", "plugin"],
+  "homepage": "<%= plugin_url %>",
+  "license": "GPL-2.0+",
+  "authors": [
+    {
+      "name": "log.OSCON, Lda",
+      "email": "engenharia@log.pt",
+      "homepage": "http://log.pt/"
+    }
+  ],
+  "support": {
+    "issues": "<%= git_issues %>",
+    "source": "<%= git_source %>"
+  },
+  "autoload": {
+    "psr-4": {
+      "<% namespace_composer %>": "lib/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "<% tests_namespace_composer %>": "tests/"
+    }
+  },
+  "require": {
+    "composer/installers": "~1.0",
+    "php": ">=5.5.9"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "*@stable",
+    "10up/wp_mock": "dev-master"
+  },
+  "suggest": {}
+}
