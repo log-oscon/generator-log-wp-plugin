@@ -12,7 +12,8 @@ It will generate a base WordPress Plugin project with PHPUnit, WP_Mocks and Gulp
 
 ## Instalation ##
 
-Please read [Yeoman docs] (http://yeoman.io) for Yeoman installation.
+Please read [Yeoman docs] (http://yeoman.io) for Yeoman installation.  
+
 `npm install -g generator-log-wp-plugin`
 
 ## Bootstrap ##
