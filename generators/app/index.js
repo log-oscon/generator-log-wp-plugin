@@ -22,6 +22,10 @@ var LogGenerator = yeoman.Base.extend({
     }
   },
 
+  install: function () {
+    this.spawnCommandSync('composer', ['install'], { cwd: this.destinationPath(this.config.get('text_domain')) });
+  },
+
   end: function() {
     this.config.save();
     console.log('\n\n')

@@ -18,12 +18,12 @@
   },
   "autoload": {
     "psr-4": {
-      "<% namespace.replace(/\\/g, '\\') %>": "lib/"
+      "<%= namespace.replace(/\\/g, '\\\\').replace(/\\?$/, '\\\\') %>": "lib/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "<% tests_namespace.replace(/\\/g, '\\') %>": "tests/"
+      "<%= tests_namespace.replace(/\\/g, '\\\\').replace(/\\?$/, '\\\\') %>": "tests/"
     }
   },
   "require": {

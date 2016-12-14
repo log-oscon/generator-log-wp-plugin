@@ -133,7 +133,7 @@ module.exports = function() {
     ])
     .then(function(config) {
       this.config.set(config);
-      this.config.set('git_issues', `${config.project_url}/issues`.replace(/\/+/g, '/'));
+      this.config.set('git_issues', `${config.project_url.replace(/\/+$/, '')}/issues`);
       this.config.set('git_source', config.project_url || '');
     }.bind(this));
   }.bind(this));
