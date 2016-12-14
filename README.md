@@ -43,8 +43,7 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 
 ## ROADMAP ##
 * Sub-generator for `Taxonomy`
-* Sub-generator for `Custom Post Type` with [ACF](https://www.advancedcustomfields.com/)
-* Sub-generator for `Custom Post Type` with [CMB2](https://pt.wordpress.org/plugins/cmb2/)
+* Sub-generator for `Custom Post Type`
 * Sub-generator for `Frontend` type files
 * Sub-generator for `WP-API EndPoint`
 * Sub-generator for `Widget`
