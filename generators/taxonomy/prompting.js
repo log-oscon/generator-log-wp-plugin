@@ -1,5 +1,6 @@
 var _         = require('lodash'),
     pluralize = require('pluralize'),
+    appPrompt = require('../app/prompting'),
     utils     = require('../../utils');
 
 module.exports = function() {
@@ -10,13 +11,13 @@ module.exports = function() {
       message:  'Taxonomy Slug',
       validate:  function(slug) {
         if (!slug)
-          return "Slug can't be empty";
+        return "Slug can't be empty";
 
         if ((this.config.get('taxonomies') || {})[slug])
-          return 'A taxonomy with that slug already exists';
+        return 'A taxonomy with that slug already exists';
 
         if (!slug.match(/^[a-z][a-z0-9-]+$/))
-          return 'Slug with invalid format.';
+        return 'Slug with invalid format.';
 
         return true;
       }.bind(this)
@@ -58,7 +59,8 @@ module.exports = function() {
         { name: 'show_in_rest', checked: true }
       ],
     }
-  ]).then(function(config) {
+  ])
+  .then(function(config) {
     config.test_class = config['class'] + '_TestCase';
     config.test_name = config['class'];
     var taxonomies = this.config.get('taxonomies') || {};
@@ -66,5 +68,9 @@ module.exports = function() {
     this.config.set('taxonomies', taxonomies);
     this.config.set('version', config.version);
     this.currentTaxonomy = config;
-  }.bind(this))
+
+    if (!this.config.get('project_url')) {
+      return appPrompt.bind(this)();
+    }
+  }.bind(this));
 };

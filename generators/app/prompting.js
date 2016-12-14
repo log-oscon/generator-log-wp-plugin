@@ -8,7 +8,7 @@ module.exports = function() {
     const repoFriendlyName = repo.name ? utils.humanFriendlyCase(repo.name) : null;
     const repoFriendlyProject = repo.project ? utils.humanFriendlyCase(repo.project) : null;
 
-    return this.prompt([
+    const prompts = _.filter([
       {
         type:     'input',
         name:     'plugin_name',
@@ -27,16 +27,17 @@ module.exports = function() {
             return repoFriendlyProject;
           }
 
-          if (repoFriendlyName.toLowerCase() !== config.plugin_name.toLowerCase()) {
+          var plugin_name = config.plugin_name || this.config.get('plugin_name') || '';
+          if (repoFriendlyName && repoFriendlyName.toLowerCase() !== plugin_name.toLowerCase()) {
             return repoFriendlyName;
           }
 
           return null;
-        }
+        }.bind(this)
       }, {
         type:     'input',
         name:     'plugin_url',
-        message:  'Plugin URL',
+        message:  'git URL',
         default:  repo && repo.url || null
       }, {
         type:     'input',
@@ -98,12 +99,14 @@ module.exports = function() {
         default:  '1.0.0',
         validate: utils.notEmpty
       }
-    ])
+    ], promps => !this.config.get(promps.name));
+
+    return (prompts.length && this.prompt(prompts) || Promise.resolve(this.config.getAll()))
     .then(function(config) {
       this.destinationRoot(config.text_domain);
       this.config.set(config);
-      this.config.set('git_issues', `${config.project_url.replace(/\/+$/, '')}/issues`);
-      this.config.set('git_source', config.project_url || '');
+      this.config.set('git_issues', `${config.plugin_url.replace(/\/+$/, '')}/issues`);
+      this.config.set('git_source', config.plugin_url || '');
     }.bind(this));
   }.bind(this));
 };
