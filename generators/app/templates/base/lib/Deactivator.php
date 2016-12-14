@@ -4,7 +4,7 @@
  * Fired during plugin deactivation
  *
  * @link       <%= project_url %>
- * @since      1.0.0
+ * @since      <%= version %>
  *
  * @package    <%= vendor_name %>
  */
@@ -16,7 +16,7 @@ namespace <%= namespace %>;
  *
  * This class defines all code necessary to run during the plugin's deactivation.
  *
- * @since      1.0.0
+ * @since      <%= version %>
  * @package    <%= vendor_name %>
  * @author     log.OSCON, Lda. <engenharia@log.pt>
  */
@@ -27,7 +27,7 @@ class Deactivator {
 	 *
 	 * Long Description.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 */
 	public static function deactivate() {
 

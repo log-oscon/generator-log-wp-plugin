@@ -7,7 +7,7 @@
  * so that it is ready for translation.
  *
  * @link       <%= project_url %>
- * @since      1.0.0
+ * @since      <%= version %>
  *
  * @package    <%= vendor_name %>
  */
@@ -20,7 +20,7 @@ namespace <%= namespace %>;
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @since      1.0.0
+ * @since      <%= version %>
  * @package    <%= vendor_name %>
  * @author     log.OSCON, Lda. <engenharia@log.pt>
  */
@@ -29,7 +29,7 @@ class I18n {
 	/**
 	 * The domain specified for this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 * @access   private
 	 * @var      string    $domain    The domain identifier for this plugin.
 	 */
@@ -38,7 +38,7 @@ class I18n {
 	/**
 	 * Load the plugin text domain for translation.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 */
 	public function load_plugin_textdomain() {
 
@@ -53,7 +53,7 @@ class I18n {
 	/**
 	 * Set the domain equal to that of the specified domain.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 * @param    string    $domain    The domain that represents the locale of this plugin.
 	 */
 	public function set_domain( $domain ) {

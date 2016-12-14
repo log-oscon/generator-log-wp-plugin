@@ -9,14 +9,14 @@
  * that starts the plugin.
  *
  * @link              <%= project_url %>
- * @since             1.0.0
+ * @since             <%= version %>
  * @package           <%= vendor_name %>
  *
  * @wordpress-plugin
  * Plugin Name:       <%= plugin_name %>
  * Plugin URI:        <%= plugin_url %>
  * Description:       <%= plugin_description %>
- * Version:           1.0.0
+ * Version:           <%= version %>
  * Author:            log.OSCON, Lda.
  * Author URI:        http://log.pt/
  * License:           GPL-2.0+
@@ -52,6 +52,6 @@ if ( ! defined( 'WPINC' ) ) {
  * @since    0.0.1
  */
 \add_action( 'plugins_loaded', function () {
-  $plugin = new <%= namespace %>\Plugin( '<%= text_domain %>', '1.0.0' );
+  $plugin = new <%= namespace %>\Plugin( '<%= text_domain %>', '<%= version %>' );
   $plugin->run();
 } );

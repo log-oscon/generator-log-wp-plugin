@@ -7,7 +7,7 @@
  * public-facing side of the site and the dashboard.
  *
  * @link       <%= project_url %>
- * @since      1.0.0
+ * @since      <%= version %>
  *
  * @package    <%= vendor_name %>
  */
@@ -23,7 +23,7 @@ namespace <%= namespace %>;
  * Also maintains the unique identifier of this plugin as well as the current
  * version of the plugin.
  *
- * @since      1.0.0
+ * @since      <%= version %>
  * @package    <%= vendor_name %>
  * @author     log.OSCON, Lda. <engenharia@log.pt>
  */
@@ -32,7 +32,7 @@ class Plugin {
 	/**
 	 * The unique identifier of this plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 * @access   protected
 	 * @var      string    $pluginname    The string used to uniquely identify this plugin.
 	 */
@@ -41,7 +41,7 @@ class Plugin {
 	/**
 	 * The current version of the plugin.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 * @access   protected
 	 * @var      string    $version    The current version of the plugin.
 	 */
@@ -53,7 +53,7 @@ class Plugin {
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 */
 	public function __construct( $name, $version ) {
 		$this->name    = $name;
@@ -76,7 +76,7 @@ class Plugin {
 	 * The name of the plugin used to uniquely identify it within the context of
 	 * WordPress and to define internationalization functionality.
 	 *
-	 * @since     1.0.0
+	 * @since     <%= version %>
 	 * @return    string    The name of the plugin.
 	 */
 	public function get_plugin_name() {
@@ -86,7 +86,7 @@ class Plugin {
 	/**
 	 * Retrieve the version number of the plugin.
 	 *
-	 * @since     1.0.0
+	 * @since     <%= version %>
 	 * @return    string    The version number of the plugin.
 	 */
 	public function get_version() {
@@ -99,7 +99,7 @@ class Plugin {
 	 * Uses the I18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
-	 * @since    1.0.0
+	 * @since    <%= version %>
 	 * @access   private
 	 */
 	private function set_locale() {

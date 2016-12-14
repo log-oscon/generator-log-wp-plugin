@@ -37,7 +37,7 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 [Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)
 
 ## Changelog ##
-* 1.0.0
+* <%= version %>
 	* Initial release.
 
 

@@ -1,57 +1,19 @@
-const _      = require('lodash'),
-      origin = require('git-origin-url'),
-      url    = require('url'),
-      utils  = require('../../utils');
-
-function notEmpty(src) {
-  return !!src;
-}
-
-function namespaceFriendly(value) {
-  return _.words(value).map(_.upperFirst).join('');
-};
-
-function humanFriendly(string) {
-  return _.words(string).map(_.upperFirst).join(' ')
-}
-
-function getGitOriginURL() {
-  return new Promise(function(resolve) {
-    origin(function(err, url) {
-      var gitURL;
-
-      if (err) return resolve({});
-
-      // Retrieves info from git URL
-      gitURL = url.match(/^git@(.*?):(.*?)\/(.*?)(\.git)?$/);
-      if (gitURL) {
-        url = ['https://', gitURL[1], '/', gitURL[2], '/', gitURL[3]].join('');
-      } else {
-        gitURL = url.match(/^https?:\/\/(.*?)\/(.*?)\/(.*?)(\.git)?$/);
-      }
-
-      resolve({
-        url: url,
-        project: gitURL[2],
-        name: gitURL[3],
-      });
-    });
-  });
-}
+var _      = require('lodash'),
+    url    = require('url'),
+    utils  = require('../../utils');
 
 module.exports = function() {
-  utils.banner();
-  return getGitOriginURL()
+  return utils.getGitOriginURL()
   .then(function(repo) {
-    const repoFriendlyName = repo.name ? humanFriendly(repo.name) : null;
-    const repoFriendlyProject = repo.project ? humanFriendly(repo.project) : null;
+    const repoFriendlyName = repo.name ? utils.humanFriendlyCase(repo.name) : null;
+    const repoFriendlyProject = repo.project ? utils.humanFriendlyCase(repo.project) : null;
 
     return this.prompt([
       {
         type:     'input',
         name:     'plugin_name',
         message:  'Plugin name (human friendly)',
-        validate: notEmpty,
+        validate: utils.notEmpty,
         default:  function() {
           return repoFriendlyName;
         },
@@ -59,7 +21,7 @@ module.exports = function() {
         type:     'input',
         name:     'vendor_name',
         message:  'Vendor name (human friendly)',
-        validate: notEmpty,
+        validate: utils.notEmpty,
         default:  function(config) {
           if (!repoFriendlyName) {
             return repoFriendlyProject;
@@ -89,7 +51,7 @@ module.exports = function() {
         type:     'input',
         name:     'text_domain',
         message:  'Text Domain',
-        validate:  notEmpty,
+        validate:  utils.notEmpty,
         default:  function(config) { return _.kebabCase(config.plugin_name); }
       }, {
         type:     'input',
@@ -97,27 +59,27 @@ module.exports = function() {
         message:  'Namespace',
         default:  function(config) {
           return [
-            namespaceFriendly(config.vendor_name),
+            utils.namespaceFriendlyCase(config.vendor_name),
             'WP',
             'Plugin',
-            namespaceFriendly(config.plugin_name),
+            utils.namespaceFriendlyCase(config.plugin_name),
           ].join('\\');
         },
-        validate: notEmpty
+        validate: utils.notEmpty
       }, {
         type:     'input',
         name:     'tests_namespace',
         message:  'Tests namespace',
         default:  function(config) {
           return [
-            namespaceFriendly(config.vendor_name),
+            utils.namespaceFriendlyCase(config.vendor_name),
             'WP',
             'Plugin',
             'Tests',
-            namespaceFriendly(config.plugin_name),
+            utils.namespaceFriendlyCase(config.plugin_name),
           ].join('\\');
         },
-        validate: notEmpty
+        validate: utils.notEmpty
       }, {
         type:     'input',
         name:     'name_composer',
@@ -128,7 +90,13 @@ module.exports = function() {
             _.kebabCase(config.plugin_name)
           ].join('/');
         },
-        validate: notEmpty
+        validate: utils.notEmpty
+      }, {
+        type:     'input',
+        name:     'version',
+        message:  'Version',
+        default:  '1.0.0',
+        validate: utils.notEmpty
       }
     ])
     .then(function(config) {

@@ -1,10 +1,10 @@
 <?php
 
 use <%= namespace %>\Plugin;
-use <%= namespace %>\Taxonomy\<%= taxonomy_class %>;
+use <%= namespace %>\Taxonomy\<classaxonomy_name %>;
 
 
-class <%= taxonomy_test_name %> extends PHPUnit_Framework_TestCase {
+class <%= taxonomy_test_class %> extends PHPUnit_Framework_TestCase {
 
 	private $plugin;
 	private $brand;

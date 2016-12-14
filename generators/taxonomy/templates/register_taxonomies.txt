@@ -1,17 +1,16 @@
-
 	/**
 	 * <%= taxonomy_name %> taxonomy slug.
 	 *
 	 * @since <%= version %>
 	 * @var   string
 	 */
-	const TAXONOMY_<%= taxonomy_name_contant %> = '<%= taxonomy_name %>';
+	const TAXONOMY_<%= taxonomy_name_contant %> = '<%= taxonomy_slug %>';
 
 
 	/**
 	 * Register the custom taxonomies.
 	 *
-	 * @since  1.0.0
+	 * @since  <%= version %>
 	 * @access private
 	 */
 	private function register_taxonomies() {

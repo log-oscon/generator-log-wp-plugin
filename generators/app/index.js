@@ -1,6 +1,9 @@
-var yeoman = require('yeoman-generator');
+var utils  = require('../../utils'),
+    yeoman = require('yeoman-generator');
 
 var LogGenerator = yeoman.Base.extend({
+  banner: utils.banner(),
+
   /**
    * Prompts all required data and feeds the generator config
    */
