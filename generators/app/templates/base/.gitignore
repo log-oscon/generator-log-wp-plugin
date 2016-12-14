@@ -1,4 +1,5 @@
 dist/
+.yo-rc.json
 
 # Numerous always-ignore extensions
 *.diff

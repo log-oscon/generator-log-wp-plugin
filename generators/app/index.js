@@ -6,26 +6,36 @@ var LogGenerator = yeoman.Base.extend({
    */
   prompting: require('./prompting'),
 
+  /**
+   * Copies all templates inside `base/` to the new folder and then adds plugin_name.php with its
+   * actual name.
+   */
   writing: {
     copyFromTemplate: function() {
       this.fs.copyTpl(
         this.templatePath('base/**'),
-        this.destinationPath(this.config.get('text_domain')),
+        this.destinationPath(),
         this.config.getAll()
       );
 
       this.fs.copyTpl(
         this.templatePath('plugin_name.php'),
-        this.destinationPath(this.config.get('text_domain') + '/' + this.config.get('text_domain') + '.php'),
+        this.destinationPath(this.config.get('text_domain') + '.php'),
         this.config.getAll()
       );
     }
   },
 
+  /**
+   * Runs composer install
+   */
   install: function () {
-    this.spawnCommandSync('composer', ['install'], { cwd: this.destinationPath(this.config.get('text_domain')) });
+    this.spawnCommandSync('composer', ['install']);
   },
 
+  /**
+   * Saves configs
+   */
   end: function() {
     this.config.save();
     console.log('\n\n')
