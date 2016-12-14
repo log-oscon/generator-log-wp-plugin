@@ -56,4 +56,4 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 * [Ricardo Castelhano](https://github.com/RicCastelhano)
 
 ## License: ##
-[GPLv2 or later](http://www.gnu.org/licenses/gpl-2.0.html)
+[GPL-2.0 or later](http://www.gnu.org/licenses/gpl-2.0.html)
