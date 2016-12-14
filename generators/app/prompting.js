@@ -18,27 +18,23 @@ function humanFriendly(string) {
 function getGitOriginURL() {
   return new Promise(function(resolve) {
     origin(function(err, url) {
-      if (err) {
-        return resolve({});
+      var gitURL;
+
+      if (err) return resolve({});
+
+      // Retrieves info from git URL
+      gitURL = url.match(/^git@(.*?):(.*?)\/(.*?)(\.git)?$/);
+      if (gitURL) {
+        url = ['https://', gitURL[1], '/', gitURL[2], '/', gitURL[3]].join('');
+      } else {
+        gitURL = url.match(/^https?:\/\/(.*?)\/(.*?)\/(.*?)(\.git)?$/);
       }
 
-      const sshGit = url.match(/^git@(.*?):(.*?)\/(.*?)(\.git)?$/);
-      if (sshGit) {
-        const [,, project, name ] = sshGit;
-        resolve({
-          url: ['https://', sshGit[1], '/', sshGit[2], '/', sshGit[3]].join(''),
-          project,
-          name,
-        });
-      } else {
-        const httpGit = url.match(/^https?:\/\/(.*?)\/(.*?)\/(.*?)(\.git)?$/);
-        const [,, project, name ] = httpGit;
-        resolve({
-          url,
-          project,
-          name,
-        });
-      }
+      resolve({
+        url: url,
+        project: gitURL[2],
+        name: gitURL[3],
+      });
     });
   });
 }
@@ -46,7 +42,7 @@ function getGitOriginURL() {
 module.exports = function() {
   utils.banner();
   return getGitOriginURL()
-  .then(repo => {
+  .then(function(repo) {
     const repoFriendlyName = repo.name ? humanFriendly(repo.name) : null;
     const repoFriendlyProject = repo.project ? humanFriendly(repo.project) : null;
 
@@ -84,7 +80,7 @@ module.exports = function() {
         type:     'input',
         name:     'project_url',
         message:  'Project URL',
-        default:  ({ plugin_url }) => plugin_url || (repo && repo.url || null)
+        default:  function(config) { return config.plugin_url || (repo && repo.url || null); }
       }, {
         type:     'input',
         name:     'plugin_description',
@@ -94,7 +90,7 @@ module.exports = function() {
         name:     'text_domain',
         message:  'Text Domain',
         validate:  notEmpty,
-        default:  ({ plugin_name }) => _.kebabCase(plugin_name)
+        default:  function(config) { return _.kebabCase(config.plugin_name); }
       }, {
         type:     'input',
         name:     'namespace',
@@ -135,11 +131,10 @@ module.exports = function() {
         validate: notEmpty
       }
     ])
-    .then(config => {
+    .then(function(config) {
       this.config.set(config);
       this.config.set('git_issues', `${config.project_url}/issues`.replace(/\/+/g, '/'));
       this.config.set('git_source', config.project_url || '');
-      return this.config.save();
-    });
-  });
+    }.bind(this));
+  }.bind(this));
 };

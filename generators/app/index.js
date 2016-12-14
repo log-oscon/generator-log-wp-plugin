@@ -9,15 +9,23 @@ var LogGenerator = yeoman.Base.extend({
   writing: {
     copyFromTemplate: function() {
       this.fs.copyTpl(
-        this.templatePath('**'),
+        this.templatePath('base/**'),
         this.destinationPath(this.config.get('text_domain')),
+        this.config.getAll()
+      );
+
+      this.fs.copyTpl(
+        this.templatePath('plugin_name.php'),
+        this.destinationPath(this.config.get('text_domain') + '/' + this.config.get('text_domain') + '.php'),
         this.config.getAll()
       );
     }
   },
 
   end: function() {
-    console.log('Here I AM!');
+    this.config.save();
+    console.log('\n\n')
+    console.log('Files have been generated under ' + this.config.get('text_domain'));
   }
 });
 

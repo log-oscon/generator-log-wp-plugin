@@ -48,6 +48,7 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 * Sub-generator for `Frontend` type files
 * Sub-generator for `WP-API EndPoint`
 * Sub-generator for `Widget`
+* App prompting refactor and field validation
 
 
 ## Contributors: ##
