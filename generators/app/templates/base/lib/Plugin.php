@@ -66,7 +66,7 @@ class Plugin {
 	 * Load the dependencies, define the locale, and set the hooks for the Dashboard and
 	 * the public-facing side of the site.
 	 *
-	 * @since    0.0.1
+	 * @since    <%= version %>
 	 */
 	public function run() {
 		$this->set_locale();

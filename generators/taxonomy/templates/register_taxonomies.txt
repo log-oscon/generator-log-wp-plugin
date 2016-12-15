@@ -1,22 +1,8 @@
-	/**
-	 * <%= taxonomy_name %> taxonomy slug.
-	 *
-	 * @since <%= version %>
-	 * @var   string
-	 */
-	const TAXONOMY_<%= taxonomy_name_contant %> = '<%= taxonomy_slug %>';
-
-
-	/**
-	 * Register the custom taxonomies.
-	 *
-	 * @since  <%= version %>
-	 * @access private
-	 */
+	const TAXONOMY_<%= taxonomy_constant %> = '<%= taxonomy_slug %>';
 	private function register_taxonomies() {
 
 		$taxonomies = array(
-			static::TAXONOMY_<%= taxonomy_name_contant %>  => new Taxonomy\<%= taxonomy_name %>( $this, static::TAXONOMY_<%= taxonomy_name_contant %> ),
+			static::TAXONOMY_<%= taxonomy_constant %>  => new Taxonomy\<%= taxonomy_class %>( $this, static::TAXONOMY_<%= taxonomy_constant %> ),
 		);
 
 		$this->taxonomies = array_keys( $taxonomies );

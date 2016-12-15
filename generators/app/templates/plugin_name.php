@@ -49,7 +49,7 @@ if ( ! defined( 'WPINC' ) ) {
 /**
  * Begins execution of the plugin.
  *
- * @since    0.0.1
+ * @since    <%= version %>
  */
 \add_action( 'plugins_loaded', function () {
   $plugin = new <%= namespace %>\Plugin( '<%= text_domain %>', '<%= version %>' );

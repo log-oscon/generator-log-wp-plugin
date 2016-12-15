@@ -26,6 +26,12 @@ var LogGenerator = yeoman.Base.extend({
         this.destinationPath(this.config.get('text_domain') + '.php'),
         this.config.getAll()
       );
+
+      this.fs.copy(
+        this.templatePath('plugin_name.pot'),
+        this.destinationPath('languages/' + this.config.get('text_domain') + '.pot'),
+        this.config.getAll()
+      );
     }
   },
 

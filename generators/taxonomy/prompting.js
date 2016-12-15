@@ -66,6 +66,7 @@ module.exports = function() {
     var taxonomies = this.config.get('taxonomies') || {};
     taxonomies[config.slug] = config;
     this.config.set('taxonomies', taxonomies);
+    this.config.set('taxonomy_constant', _.snakeCase(config.slug).toUpperCase());
     this.config.set('version', config.version);
     this.currentTaxonomy = config;
 
