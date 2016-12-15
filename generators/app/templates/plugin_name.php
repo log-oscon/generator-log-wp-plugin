@@ -38,13 +38,13 @@ if ( ! defined( 'WPINC' ) ) {
  * The code that runs during plugin activation.
  * This action is documented in lib/Activator.php
  */
-\register_activation_hook( __FILE__, '<%= namespace %>Activator::activate' );
+\register_activation_hook( __FILE__, '<%= namespace %>\Activator::activate' );
 
 /**
  * The code that runs during plugin deactivation.
  * This action is documented in lib/Deactivator.php
  */
-\register_deactivation_hook( __FILE__, '<%= namespace %>Deactivator::deactivate' );
+\register_deactivation_hook( __FILE__, '<%= namespace %>\Deactivator::deactivate' );
 
 /**
  * Begins execution of the plugin.
