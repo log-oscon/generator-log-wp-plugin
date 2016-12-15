@@ -22,7 +22,7 @@ function loadPluginConfigs(originPath) {
         regexTags = /\n\s*\*\s@([a-zA-Z-]+)[ \t]+([^\n]+)/g,
         pluginRoot = path.resolve(rootPath, path.basename(rootPath) + '.php');
 
-    if (!fs.existsSync(pluginRoot)) resolve({ composer: composer })
+    if (!fs.existsSync(pluginRoot)) return ({ composer: composer })
 
     pluginFile = fs.readFileSync(pluginRoot).toString();
     pluginHeader = pluginFile.match(/\/\*\*(\n|.)*?\*\//);

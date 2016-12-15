@@ -1,13 +1,5 @@
 	const TAXONOMY_<%= taxonomy_constant %> = '<%= taxonomy_slug %>';
-	private function register_taxonomies() {
-
-		$taxonomies = array(
-			static::TAXONOMY_<%= taxonomy_constant %>  => new Taxonomy\<%= taxonomy_class %>( $this, static::TAXONOMY_<%= taxonomy_constant %> ),
-		);
-
-		$this->taxonomies = array_keys( $taxonomies );
-
-		foreach ( $taxonomies as $slug => $taxonomy ) {
-			\add_action( 'init', array( $taxonomy, 'register' ) );
-		}
+	function register_taxonomy() {
+		$taxonomy = new <%= namespace %>\Taxonomy\<%= taxonomy_class %>( $this, static::TAXONOMY_<%= taxonomy_constant %> )
+		\add_action( 'init', array( $taxonomy, 'register' ) );
 	}

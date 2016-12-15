@@ -7,9 +7,23 @@ module.exports = function() {
   return this.prompt([
     {
       type:     'input',
+      name:     'singular_name',
+      message:  'Taxonomy Singular Name',
+      validate:  utils.notEmpty
+    }, {
+      type:     'input',
+      name:     'plural_name',
+      message:  'Taxonomy Plural Name',
+      validate:  utils.notEmpty,
+      default:  function(config) { return pluralize.plural(config.singular_name); }
+    }, {
+      type:     'input',
       name:     'slug',
       message:  'Taxonomy Slug',
-      validate:  function(slug) {
+      default:  function(config) {
+        return _.kebabCase(config.singular_name);
+      },
+      validate: function(slug) {
         if (!slug)
         return "Slug can't be empty";
 
@@ -21,18 +35,6 @@ module.exports = function() {
 
         return true;
       }.bind(this)
-    }, {
-      type:     'input',
-      name:     'singular_name',
-      message:  'Taxonomy Singular Name',
-      validate:  utils.notEmpty,
-      default:  function(config) { return utils.humanFriendlyCase(config.slug); }
-    }, {
-      type:     'input',
-      name:     'plural_name',
-      message:  'Taxonomy Plural Name',
-      validate:  utils.notEmpty,
-      default:  function(config) { return pluralize.plural(config.singular_name); }
     }, {
       type:     'input',
       name:     'version',
@@ -48,7 +50,7 @@ module.exports = function() {
     }, {
       type:     'checkbox',
       name:     'args',
-      message:  'Taxonomy Options (checked if true)',
+      message:  'Taxonomy Options',
       choices: [
         { name: 'hierarchical', checked: false },
         { name: 'public', checked: true },

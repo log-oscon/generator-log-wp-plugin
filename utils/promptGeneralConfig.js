@@ -41,10 +41,10 @@ module.exports = function() {
     }
 
     this.config.set(_.omitBy({
-      composer_name: plugin.composer.name,
-      text_domain: plugin.composer.name.replace(/.*\/(.*)$/, ''),
+      composer_name: plugin.composer.name && plugin.composer.name,
+      text_domain: plugin.composer && plugin.composer.name.replace(/.*\/(.*)$/, ''),
       plugin_url: plugin.composer.homepage,
-      git_issues: plugin.composer.homepage.replace(/\/+$/, '') + '/issues',
+      git_issues: plugin.composer.homepage && plugin.composer.homepage.replace(/\/+$/, '') + '/issues',
       git_source: plugin.composer.homepage,
       namespace: namespace.replace(/\\$/, ''),
       tests_namespace: tests_namespace.replace(/\\$/, ''),
