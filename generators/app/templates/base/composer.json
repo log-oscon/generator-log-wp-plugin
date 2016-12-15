@@ -34,5 +34,10 @@
     "phpunit/phpunit": "*@stable",
     "10up/wp_mock": "dev-master"
   },
-  "suggest": {}
+  "suggest": {
+
+  },
+  "config": {
+    "sort-packages": true
+  }
 }
