@@ -22,6 +22,12 @@ var LogGenerator = yeoman.Base.extend({
       );
 
       this.fs.copyTpl(
+        this.templatePath('base/.**'),
+        this.destinationPath(),
+        this.config.getAll()
+      );
+
+      this.fs.copyTpl(
         this.templatePath('plugin_name.php'),
         this.destinationPath(this.config.get('text_domain') + '.php'),
         this.config.getAll()
