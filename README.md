@@ -6,9 +6,9 @@ It will generate a base WordPress Plugin project with PHPUnit, WP_Mocks and Gulp
 
 ## Instalation ##
 
-Please read [Yeoman docs](http://yeoman.io) for Yeoman installation.  
+Please read [Yeoman docs](http://yeoman.io) for Yeoman installation.
 
-Run `generator-log-wp-plugin` from `npm`:  
+Run `generator-log-wp-plugin` from `npm`:
 `npm install -g generator-log-wp-plugin`
 
 ## Bootstrap ##
@@ -37,9 +37,11 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 [Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)
 
 ## Changelog ##
-* <%= version %>
+* 0.0.6
 	* Initial release.
 
+* 0.0.7
+    * Fix dotfiles not being generated
 
 ## ROADMAP ##
 * Sub-generator for `Taxonomy`
