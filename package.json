@@ -1,6 +1,6 @@
 {
   "name": "generator-log-wp-plugin",
-  "version": "0.0.7",
+  "version": "0.0.6",
   "description": "Generates a WP Plugin shaped for log OSCON workflow",
   "main": "index.js",
   "author": "log OSCON <engenharia@log.pt> (https://github.com/log-oscon/generator-log-wp-plugin)",
