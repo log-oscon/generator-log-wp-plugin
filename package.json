@@ -22,7 +22,7 @@
     "url": "git+https://github.com/log-oscon/generator-log-wp-plugin.git"
   },
   "keywords": [
-    "yeoman",
+    "yeoman-generator",
     "generator",
     "wordpress",
     "wp",
