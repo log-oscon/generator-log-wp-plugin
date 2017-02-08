@@ -26,12 +26,12 @@
  */
 
 if ( file_exists( dirname( __FILE__ ) . '/vendor/autoload.php' ) ) {
-  require_once dirname( __FILE__ ) . '/vendor/autoload.php';
+	require_once dirname( __FILE__ ) . '/vendor/autoload.php';
 }
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-  die;
+	die;
 }
 
 /**
@@ -52,6 +52,6 @@ if ( ! defined( 'WPINC' ) ) {
  * @since    <%= version %>
  */
 \add_action( 'plugins_loaded', function () {
-  $plugin = new <%= namespace %>\Plugin( '<%= text_domain %>', '<%= version %>' );
-  $plugin->run();
+	$plugin = new <%= namespace %>\Plugin( '<%= text_domain %>', '<%= version %>' );
+	$plugin->run();
 } );
