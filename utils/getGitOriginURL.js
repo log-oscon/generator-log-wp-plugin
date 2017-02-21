@@ -3,22 +3,26 @@ var origin = require('git-origin-url');
 function getGitOriginURL() {
   return new Promise(function(resolve) {
     origin(function(err, url) {
-      var gitURL;
+      var urlParsed;
 
       if (err) return resolve({});
 
       // Retrieves info from git URL
-      gitURL = url.match(/^git@(.*?):(.*?)\/(.*?)(\.git)?$/);
-      if (gitURL) {
-        url = ['https://', gitURL[1], '/', gitURL[2], '/', gitURL[3]].join('');
+      urlParsed = url.match(/^git@(.*?):(.*?)\/(.*?)(\.git)?$/);
+      if (urlParsed) {
+        url = ['https://', urlParsed[1], '/', urlParsed[2], '/', urlParsed[3]].join('');
       } else {
-        gitURL = url.match(/^https?:\/\/(.*?)\/(.*?)\/(.*?)(\.git)?$/);
+        urlParsed = url.match(/(\/(.*?))?\/(.*?)(\.git)?$/);
+      }
+
+      if (!urlParsed)  {
+        return resolve({});
       }
 
       resolve({
         url: url,
-        project: gitURL[2],
-        name: gitURL[3],
+        project: urlParsed[2],
+        name: urlParsed[3],
       });
     });
   });
