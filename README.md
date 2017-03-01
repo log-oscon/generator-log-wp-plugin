@@ -32,6 +32,19 @@ Run `generator-log-wp-plugin` from `npm`:
 
 ## Sub-Generators:
 Aditional sub-generators to generate/update files to enhance your plugin.
+### Taxonomy
+`yo log-wp-plugin:taxonomy` will generate inside the plugin's `lib` folder the following files and directories:
+
+* lib/
+    * `Taxonomy.php`
+    * Taxonomy/
+       * `{taxonomy_class}.php`
+* test/
+    * phpunit/
+        * `{taxonomy_test_name}.test.php`
+
+It will be displayed the necessary code-block to be added in the Plugin to the correct taxonomy registry.
+
 
 ## Where can I report bugs? ##
 [Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)
@@ -42,7 +55,6 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 
 
 ## ROADMAP ##
-* Sub-generator for `Taxonomy`
 * Sub-generator for `Custom Post Type`
 * Sub-generator for `Frontend` type files
 * Sub-generator for `WP-API EndPoint`
