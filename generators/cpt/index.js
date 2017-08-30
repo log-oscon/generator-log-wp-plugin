@@ -14,7 +14,7 @@ var LogGenerator = yeoman.Base.extend({
 
   _getTemplateData: function() {
     return _.assign(
-      _.mapKeys(this.currentCPT, function(value, key) { return 'cpt_' + key; }),
+      _.mapKeys(this.currentCPT, function(value, key) { return 'post_type_' + key; }),
       this.config.getAll()
     );
   },
@@ -33,7 +33,7 @@ var LogGenerator = yeoman.Base.extend({
         config
       );
 
-      if (!this.fs.exists(this.templatePath('PostType.php'))) {
+      if (!this.fs.exists(this.destinationPath('PostType.php'))) {
         this.fs.copyTpl(
           this.templatePath('PostType.php'),
           this.destinationPath('lib/PostType.php'),
@@ -63,7 +63,7 @@ var LogGenerator = yeoman.Base.extend({
 
     this.config.save();
     console.log('\n\n')
-    console.log('PostType `'+ this.currentCPT.slug +'` have been added ' + this.config.get('text_domain'));
+    console.log('PostType `'+ this.currentCPT.slug +'` have been added to ' + this.config.get('text_domain'));
   }
 });
 

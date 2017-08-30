@@ -1,7 +1,7 @@
 <?php
 
 use <%= namespace %>\Plugin;
-use <%= namespace %>\PostType\<%= post_type_test_class %>;
+use <%= namespace %>\PostType\<%= post_type_class %>;
 
 
 class <%= post_type_test_class %> extends PHPUnit_Framework_TestCase {

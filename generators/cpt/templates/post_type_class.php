@@ -70,8 +70,9 @@ class <%= post_type_class %> extends PostType {
 			'has_archive'         => <%= post_type_args.indexOf( 'has_archive' ) != -1 %>,
 			'exclude_from_search' => <%= post_type_args.indexOf( 'exclude_from_search' ) != -1 %>,
 			'publicly_queryable'  => <%= post_type_args.indexOf( 'publicly_queryable' ) != -1 %>,
-			'capability_type'     => '<%= post_type_singular_name %>',
+			'capability_type'     => '<%= post_type_slug %>',
 			'capabilities'        => $capabilities,
+			'taxonomies'          => $this->taxonomies,
 		);
 	}
 

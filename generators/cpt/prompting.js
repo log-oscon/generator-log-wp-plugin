@@ -79,7 +79,7 @@ module.exports = function() {
     post_types[config.slug] = config;
 
     this.config.set('post_types', post_types);
-    this.config.set('cpt_constant', _.snakeCase(config.slug).toUpperCase());
+    this.config.set('post_type_constant', _.snakeCase(config.slug).toUpperCase());
     this.config.set('version', config.version);
 
     this.currentCPT = config;
