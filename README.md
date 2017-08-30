@@ -45,17 +45,31 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 
 It will be displayed the necessary code-block to be added in the Plugin to the correct taxonomy registry.
 
+### Custom Post Type
+`yo log-wp-plugin:cpt` will generate inside the plugin's `lib` folder the following files and directories:
+
+* lib/
+    * `PostType.php`
+    * PostType/
+       * `{post_type_class}.php`
+* test/
+    * phpunit/
+        * `{post_type_test_name}.test.php`
+
+It will be displayed the necessary code-block to be added in the Plugin to the correct taxonomy registry.
 
 ## Where can I report bugs? ##
 [Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)
 
 ## Changelog ##
-* <%= version %>
-	* Initial release.
-
+* 1.0.0
+	* Initial release;
+    * Bootstrap of plugins structure;
+	* Sub-generator for `Taxonomy`.
+* 1.1.0
+	* Sub-generator for `Custom Post Type`.
 
 ## ROADMAP ##
-* Sub-generator for `Custom Post Type`
 * Sub-generator for `Frontend` type files
 * Sub-generator for `WP-API EndPoint`
 * Sub-generator for `Widget`
@@ -66,6 +80,7 @@ It will be displayed the necessary code-block to be added in the Plugin to the c
 * log.OSCON <engenharia@log.pt>
 * [Edygar de Lima](https://github.com/edygar)
 * [Ricardo Castelhano](https://github.com/RicCastelhano)
+* [Rui Barbosa](https://github.com/narayon)
 
 ## License: ##
 [GPL-2.0 or later](http://www.gnu.org/licenses/gpl-2.0.html)
