@@ -69,12 +69,17 @@ It will be displayed the necessary code-block to be added in the Plugin to the c
 * 1.1.0
 	* Sub-generator for `Custom Post Type`.
 
-## ROADMAP ##
+## Contribute: ##
+
+* clone this repo;
+* create a new branch;
+* add you contribution as a Pull Request;
+* test using `npm link` ([learn more](http://yeoman.io/authoring/)).
+### ROADMAP ###
 * Sub-generator for `Frontend` type files
 * Sub-generator for `WP-API EndPoint`
 * Sub-generator for `Widget`
 * App prompting refactor and field validation
-
 
 ## Contributors: ##
 * log.OSCON <engenharia@log.pt>
