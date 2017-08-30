@@ -33,7 +33,7 @@ var LogGenerator = yeoman.Base.extend({
         config
       );
 
-      if (!this.fs.exists(this.templatePath('Taxonomy.php'))) {
+      if (!this.fs.exists(this.destinationPath('Taxonomy.php'))) {
         this.fs.copyTpl(
           this.templatePath('Taxonomy.php'),
           this.destinationPath('lib/Taxonomy.php'),
