@@ -1,0 +1,12 @@
+	const CPT_<%= post_type_constant %> = '<%= post_type_slug %>';
+	function register_post_types() {
+
+		$handlers = array(
+			static::CPT_<%= post_type_constant %> => new PostType\<%= post_type_class %>( $this, static::CPT_<%= post_type_constant %> ),
+		);
+
+		foreach ( $handlers as $handler ) {
+			\add_action( 'init', array( $handler, 'register' ) );
+			\add_action( 'init', array( $handler, 'register_hooks' ) );
+		}
+	}
