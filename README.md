@@ -38,10 +38,10 @@ Aditional sub-generators to generate/update files to enhance your plugin.
 * lib/
     * `Taxonomy.php`
     * Taxonomy/
-       * `{taxonomy_class}.php`
+        * `{taxonomy_class}.php`
 * test/
     * phpunit/
-        * `{taxonomy_test_name}.test.php`
+        * `{taxonomy_test_name}.test.php`
 
 It will be displayed the necessary code-block to be added in the Plugin to the correct taxonomy registry.
 
@@ -51,12 +51,12 @@ It will be displayed the necessary code-block to be added in the Plugin to the c
 * lib/
     * `PostType.php`
     * PostType/
-       * `{post_type_class}.php`
+        * `{post_type_class}.php`
 * test/
     * phpunit/
-        * `{post_type_test_name}.test.php`
+        * `{post_type_test_name}.test.php`
 
-It will be displayed the necessary code-block to be added in the Plugin to the correct taxonomy registry.
+It will be displayed the necessary code-block to be added in the Plugin to the correct post type registry.
 
 ## Where can I report bugs? ##
 [Git issues](https://github.com/log-oscon/generator-log-wp-plugin/issues)
@@ -75,11 +75,14 @@ It will be displayed the necessary code-block to be added in the Plugin to the c
 * create a new branch;
 * add you contribution as a Pull Request;
 * test using `npm link` ([learn more](http://yeoman.io/authoring/)).
+
 ### ROADMAP ###
 * Sub-generator for `Frontend` type files
-* Sub-generator for `WP-API EndPoint`
 * Sub-generator for `Widget`
+* Sub-generator for `WP-API EndPoint`
 * App prompting refactor and field validation
+* Suport for agnostic git URLs
+* Option to add Gulp task for tests (validate if plugin is standalone)
 
 ## Contributors: ##
 * log.OSCON <engenharia@log.pt>
