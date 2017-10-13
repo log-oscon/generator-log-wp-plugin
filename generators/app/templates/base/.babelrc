@@ -1,0 +1,23 @@
+{
+  "presets": [
+    "es2015"
+  ],
+  "plugins": [
+    "transform-object-assign",
+    "transform-runtime"
+  ],
+  "env": {
+    "development": {
+      "plugins": [
+        "transform-object-assign",
+        "transform-runtime"
+      ]
+    },
+    "production": {
+      "plugins": [
+        "transform-object-assign",
+        "transform-runtime"
+      ]
+    }
+  }
+}
